@@ -6,7 +6,7 @@ namespace BankManagementSystem.View
 {
     public class Rectangle
     {
-        public static string DrawRectangle(this string s)
+        public static string DrawRectangle(string s)
         {
             string upperLeft = "╔";
             string upperRight = "╗";
