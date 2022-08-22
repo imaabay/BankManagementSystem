@@ -2,6 +2,7 @@
 using System.Text;
 using BankManagementSystem.Controller;
 using BankManagementSystem.View;
+using BankManagementSystem.Controller.Utils;
 
 
 namespace BankManagementSystem
@@ -10,13 +11,31 @@ namespace BankManagementSystem
     {
         static void Main(string[] args)
         {
-            //nsole.WriteLine("WELCOME TO SIMPLE BANKING SYSTEM");
-            Login login = new Login();
-            //Rectangle rectangle = new Rectangle();
-
-            //ctangle.DrawRectangle("hellhghjghjgjghjgjhghjgjhghghghgjhgjgjggjg");
             Console.Write(Rectangle.DrawRectangle("WELCOME TO SIMPLE BANKING SYSTEM"));
-            login.loginUser();
+
+            try
+            {
+                Login login = new Login();
+                Helper helper = new Helper();
+
+                bool isValidLogin = login.loginUser();
+
+                if (isValidLogin)
+                {
+                    helper.PressOnlyEnter();
+                    MainMenu mainMenu = new MainMenu();
+                    mainMenu.mainMenuUI();
+                    mainMenu.getBankingOption();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Error");
+            }
+            
+
+          
+
             
            
         }

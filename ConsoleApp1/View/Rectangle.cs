@@ -12,7 +12,7 @@ namespace BankManagementSystem.View
             string upperRight = "╗";
             string lowerLeft = "╚";
             string lowerRight = "╝";
-            string verticle = "║";
+            string verticle = "|";
             string horizontal = "=";
 
             string[] lines = s.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -58,7 +58,7 @@ namespace BankManagementSystem.View
 
                     if(!(iSpaces > dblSpaces && i == iSpaces-1)) //if there is an extra space somewhere, it should be in the beginning
                     {
-                        endSpacing += "";
+                        endSpacing += "  ";
                     }
                 }
                 //add the text line to the box

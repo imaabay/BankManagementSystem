@@ -10,7 +10,7 @@ namespace BankManagementSystem.Controller
 {
     class Login
     {
-        public void loginUser()
+        public bool loginUser()
         {
             string fileName = "login.txt";
 
@@ -43,29 +43,36 @@ namespace BankManagementSystem.Controller
 
                         if(validUsername && validPassword)
                         {
-                            Console.WriteLine("Login Successful!");
+                            Console.WriteLine("Valid credentials!... Please enter");
+                            return true;
                         }
                         else
                         {
                             Console.WriteLine("Login Unsuccessful!");
+                            return false;
                         }
 
                     }
                     else
                     {
                         Console.WriteLine("File Empty");
+                        return false;
                     }
                 }
                 else
                 {
                     Console.WriteLine("Invalid Input");
+                    return false;
                 }
 
             }
             catch
             {
                 Console.WriteLine("Login Unsuccessful!");
+                return false;
             }
+
+            return false;
         }
 
         private string maskPassword()
@@ -91,6 +98,11 @@ namespace BankManagementSystem.Controller
             } while (key != ConsoleKey.Enter);
 
             return password;
+        }
+
+        public bool isValidLogin(bool isvalidLogin)
+        {
+            return isvalidLogin;
         }
     }
 }
