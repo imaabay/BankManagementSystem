@@ -10,7 +10,7 @@ namespace BankManagementSystem.Controller
 {
     class Login
     {
-        public bool loginUser()
+        public bool LoginUser()
         {
             string fileName = "login.txt";
 
@@ -20,7 +20,7 @@ namespace BankManagementSystem.Controller
             Console.WriteLine("Password: ");
             //var password = Console.ReadLine();
 
-            var password = maskPassword();
+            var password = MaskPassword();
 
             Console.WriteLine(" ");
 
@@ -72,10 +72,10 @@ namespace BankManagementSystem.Controller
                 return false;
             }
 
-            return false;
+            
         }
 
-        private string maskPassword()
+        private string MaskPassword()
         {
             var password = string.Empty;
             ConsoleKey key;
@@ -100,7 +100,7 @@ namespace BankManagementSystem.Controller
             return password;
         }
 
-        public bool isValidLogin(bool isvalidLogin)
+        public bool IsValidLogin(bool isvalidLogin)
         {
             return isvalidLogin;
         }
