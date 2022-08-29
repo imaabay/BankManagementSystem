@@ -14,14 +14,20 @@ namespace BankManagementSystem.Controller
         {
             string fileName = "login.txt";
 
-            Console.WriteLine("User Name: ");
-            var userName = Console.ReadLine();
+            Console.Write("User Name: ");
+            int userNameCursorX = Console.CursorTop;
+            int userNameCursorY = Console.CursorLeft;
+            
+            Console.Write("\nPassword: ");
+            int passwordCursorX = Console.CursorTop;
+            int passwordCursorY = Console.CursorLeft;
 
-            Console.WriteLine("Password: ");
-            //var password = Console.ReadLine();
+            Console.SetCursorPosition(userNameCursorY, userNameCursorX);
+            string userName = Console.ReadLine();
 
-            var password = MaskPassword();
-
+            Console.SetCursorPosition(passwordCursorY, passwordCursorX);
+            string password = MaskPassword();
+            
             Console.WriteLine(" ");
 
             //Read the file
@@ -48,7 +54,7 @@ namespace BankManagementSystem.Controller
                         }
                         else
                         {
-                            Console.WriteLine("Login Unsuccessful!");
+                            Console.WriteLine("Invalid credentials!... Please retry!");
                             return false;
                         }
 
@@ -68,7 +74,7 @@ namespace BankManagementSystem.Controller
             }
             catch
             {
-                Console.WriteLine("Login Unsuccessful!");
+                Console.WriteLine("Invalid credentials!... Please retry!");
                 return false;
             }
 

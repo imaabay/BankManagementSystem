@@ -39,6 +39,21 @@ namespace BankManagementSystem.Controller.Utils
 
             return userInput;
 
+        }
+        
+        public string GetFormInput(string prompt)
+        {
+            Console.Write(prompt);
+
+            var inputCursorLeft = Console.CursorLeft;
+            var inputCursorTop = Console.CursorTop;
+
+            string fieldInput = Console.ReadLine();
+
+            Console.SetCursorPosition(inputCursorLeft, inputCursorTop);
+            fieldInput = Console.ReadLine();
+
+            return fieldInput;
 
         }
     }

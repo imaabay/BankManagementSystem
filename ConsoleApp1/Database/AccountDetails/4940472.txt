@@ -1,0 +1,7 @@
+Account Number|4940472
+Account Balance|10001
+First Name|Thili
+Last Name|Abayakoon
+Address|nsw
+Phone|045697874
+Email|thil@gmail.com

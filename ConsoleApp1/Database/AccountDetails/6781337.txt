@@ -1,0 +1,7 @@
+Account Number|6781337
+Account Balance|0
+First Name|lisa
+Last Name|ass
+Address|sfdsf
+Phone|098765432
+Email|
