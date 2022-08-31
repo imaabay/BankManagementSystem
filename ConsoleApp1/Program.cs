@@ -20,31 +20,40 @@ namespace BankManagementSystem
                  Login login = new Login();
                  Helper helper = new Helper();
 
-                 bool isValidLogin = login.LoginUser();
-
-                 if (isValidLogin)
-                 {
-                     helper.PressOnlyEnter();
-                     MainMenu mainMenu = new MainMenu();
-                     mainMenu.MainMenuUI();
+                bool isValidLogin;
 
 
-                     BankingOptions options;
-                     mainMenu.GetBankingOption();
-                     options = mainMenu.UserOption;
+                do
+                {
+                    isValidLogin = login.LoginUser();
 
-                     //check banking option and navigate to screen
-                     switch (options)
-                     {
-                         case BankingOptions.CreateNewAccount:
-                             {
-                                 helper.PressOnlyEnter();
-                                 AccountCreation accountCreation = new AccountCreation();
-                                 accountCreation.AccountCreationForm(helper);
-                             }
-                             break;
-                     }
-                 }
+                    if (isValidLogin)
+                    {
+                        helper.PressOnlyEnter();
+                        MainMenu mainMenu = new MainMenu();
+                        mainMenu.MainMenuUI();
+
+
+                        BankingOptions options;
+                        mainMenu.GetBankingOption();
+                        options = mainMenu.UserOption;
+
+                        //check banking option and navigate to screen
+                        switch (options)
+                        {
+                            case BankingOptions.CreateNewAccount:
+                                {
+                                    helper.PressOnlyEnter();
+                                    AccountCreation accountCreation = new AccountCreation();
+                                    accountCreation.AccountCreationForm(helper);
+                                }
+                                break;
+                        }
+                    }
+        
+                } while (!isValidLogin);
+
+                 
              }
              catch
              {

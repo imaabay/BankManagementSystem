@@ -23,8 +23,20 @@ namespace BankManagementSystem.Controller
         public BankingOptions UserOption { get => userOption; set => userOption = value; }
         public void MainMenuUI()
         {
-            Console.Write(Rectangle.DrawRectangle("\n1. Create a new account \n2. Search for an account \n3. Deposit" +
-                "\n4. Withdraw \n5. A/C statement \n6. Delete account \n7. Exit"));
+            Console.Clear();
+            Console.WriteLine("\t\t╔=================================================╗");
+            Console.WriteLine("\t\t|      WELCOME TO SIMPLE BANKING SYSTEM           |");
+            Console.WriteLine("\t\t|=================================================|");
+            Console.WriteLine("\t\t|             LOGIN TO START                      |");
+            Console.WriteLine("\t\t|                                                 |");
+            Console.WriteLine("\t\t|        1. Create a new account                  |");
+            Console.WriteLine("\t\t|        2. Search for an account                 |");
+            Console.WriteLine("\t\t|        3. Deposit                               |");
+            Console.WriteLine("\t\t|        4. Withdraw                              |");
+            Console.WriteLine("\t\t|        5. A/C statement                         |");
+            Console.WriteLine("\t\t|        6. Delete account                        |");
+            Console.WriteLine("\t\t|        7. Exit                                  |");
+            Console.WriteLine("\t\t╚=================================================╝");
         }
 
         public void GetBankingOption()
@@ -32,7 +44,7 @@ namespace BankManagementSystem.Controller
             Helper helper = new Helper();
 
             var validResponses = new List<string> { "1", "2", "3", "4", "5", "6", "7" };
-            var userInput = helper.GetUserInput("Enter you choice (1:7) : ", validResponses);
+            var userInput = helper.GetUserInput("\n\t\tEnter you choice (1:7) : ", validResponses);
 
             int i;
             bool success = int.TryParse(userInput, out i); //check if user input is an integer

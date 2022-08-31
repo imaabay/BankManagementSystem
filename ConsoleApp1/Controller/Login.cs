@@ -12,15 +12,23 @@ namespace BankManagementSystem.Controller
     {
         public bool LoginUser()
         {
-            string fileName = "login.txt";
-
-            Console.Write("User Name: ");
+            Console.Clear();
+            Console.WriteLine("\t\t╔=================================================╗");
+            Console.WriteLine("\t\t|      WELCOME TO SIMPLE BANKING SYSTEM           |");
+            Console.WriteLine("\t\t|=================================================|");
+            Console.WriteLine("\t\t|             LOGIN TO START                      |");
+            Console.WriteLine("\t\t|                                                 |");
+            Console.Write("\t\t|  User Name:  ");
             int userNameCursorX = Console.CursorTop;
             int userNameCursorY = Console.CursorLeft;
-            
-            Console.Write("\nPassword: ");
+            Console.Write("\t\t                          |");
+            Console.Write("\n\t\t|  Password: ");
             int passwordCursorX = Console.CursorTop;
             int passwordCursorY = Console.CursorLeft;
+            Console.Write("                                     |");
+            Console.WriteLine("\n\t\t╚=================================================╝");
+
+            string fileName = "login.txt";
 
             Console.SetCursorPosition(userNameCursorY, userNameCursorX);
             string userName = Console.ReadLine();
@@ -49,12 +57,12 @@ namespace BankManagementSystem.Controller
 
                         if(validUsername && validPassword)
                         {
-                            Console.WriteLine("Valid credentials!... Please enter");
+                            Console.WriteLine("\n\n\t\t  Valid credentials!... Please enter");
                             return true;
                         }
                         else
                         {
-                            Console.WriteLine("Invalid credentials!... Please retry!");
+                            Console.WriteLine("\n\n\t\t  Invalid credentials!... Please retry!");
                             return false;
                         }
 

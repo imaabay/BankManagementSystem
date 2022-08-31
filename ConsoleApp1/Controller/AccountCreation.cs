@@ -12,49 +12,78 @@ namespace BankManagementSystem.Controller
     {
         public void AccountCreationForm(Helper helper)
         {
-            Console.WriteLine("CREATE A NEW ACCOUNT\n");
-            Console.WriteLine("ENTER THE DETAILS\n");
-
          
             AccountDetails accountDetails = new AccountDetails();
 
-            AccountDetailsFields(accountDetails);
+            AccountDetailsUI(accountDetails);
 
-            bool inputValidation = isValidAccountDetails(accountDetails);
+            Console.Write("\n\t\t Is the information correct (y/n)? ");
+            int optionCursorX = Console.CursorTop;
+            int optionCursorY = Console.CursorLeft;
 
-            Console.WriteLine(inputValidation);
+            Console.SetCursorPosition(optionCursorY, optionCursorX);
+            string optionYN = Console.ReadLine();
 
-            if (inputValidation)
+            try
             {
-                CreateNewAccount(accountDetails);
+                do
+                {
+                    if (optionYN.ToLower() == "y")
+                    {
+
+                        bool inputValidation = isValidAccountDetails(accountDetails);
+
+                        if (inputValidation)
+                        {
+                            CreateNewAccount(accountDetails);
+                        }
+                        else
+                        {
+                            Console.WriteLine("\t\t Error ");
+                        }
+
+                    }
+                } while (optionYN.ToLower() == "n");
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
+
+           
+
             
-
-
 
         }
 
-        public void AccountDetailsFields(AccountDetails accountDetails)
+        public void AccountDetailsUI(AccountDetails accountDetails)
         {
-            Console.Write("First Name: ");
+            Console.Clear();
+            Console.WriteLine("\t\t╔=================================================╗");
+            Console.WriteLine("\t\t|             CREATE A NEW ACCOUNT                |");
+            Console.WriteLine("\t\t|=================================================|");
+            Console.WriteLine("\t\t|              ENTER THE DETAILS                  |");
+            Console.WriteLine("\t\t|                                                 |");
+            Console.Write("\t\t|  First Name: ");
             int firstNameCursorX = Console.CursorTop;
             int firstNameCursorY = Console.CursorLeft;
-
-            Console.Write("\nLast Name: ");
+            Console.Write("\t\t                          |");
+            Console.Write("\n\t\t|  Last Name: ");
             int lastNameCursorX = Console.CursorTop;
             int lastNameCursorY = Console.CursorLeft;
-
-            Console.Write("\nAddress: ");
+            Console.Write("                                    |");
+            Console.Write("\n\t\t|  Address: ");
             int addressCursorX = Console.CursorTop;
             int addressCursorY = Console.CursorLeft;
-
-            Console.Write("\nPhone: ");
+            Console.Write("\t\t                          |");
+            Console.Write("\n\t\t|  Phone:    ");
             int phoneCursorX = Console.CursorTop;
             int phoneCursorY = Console.CursorLeft;
-
-            Console.Write("\nEmail: ");
+            Console.Write("                                     |");
+            Console.Write("\n\t\t|  Email:    ");
             int emailCursorX = Console.CursorTop;
             int emailCursorY = Console.CursorLeft;
+            Console.Write("\t\t                          |");
+            Console.WriteLine("\n\t\t╚=================================================╝");
 
             Console.SetCursorPosition(firstNameCursorY, firstNameCursorX);
             string firstName = Console.ReadLine();
@@ -80,32 +109,32 @@ namespace BankManagementSystem.Controller
 
         private bool isValidAccountDetails(AccountDetails accountDetails)
         {
-            if(!string.IsNullOrEmpty(accountDetails.firstName) && !string.IsNullOrWhiteSpace(accountDetails.firstName))
+            if(string.IsNullOrEmpty(accountDetails.firstName) && string.IsNullOrWhiteSpace(accountDetails.firstName))
             {
-                return true;
+                return false;
             }
 
-            if (!string.IsNullOrEmpty(accountDetails.lastName) && !string.IsNullOrWhiteSpace(accountDetails.lastName))
+            if (string.IsNullOrEmpty(accountDetails.lastName) && string.IsNullOrWhiteSpace(accountDetails.lastName))
             {
-                return true;
+                return false;
             }
 
-            if (!string.IsNullOrEmpty(accountDetails.address) && !string.IsNullOrWhiteSpace(accountDetails.address))
+            if (string.IsNullOrEmpty(accountDetails.address) && string.IsNullOrWhiteSpace(accountDetails.address))
             {
-                return true;
+                return false;
             }
 
-            if (!string.IsNullOrEmpty(accountDetails.phone) && !string.IsNullOrWhiteSpace(accountDetails.phone))
+            if (string.IsNullOrEmpty(accountDetails.phone) && string.IsNullOrWhiteSpace(accountDetails.phone))
             {
-                return true;
+                return false;
             }
 
-            if (!string.IsNullOrEmpty(accountDetails.email) && !string.IsNullOrWhiteSpace(accountDetails.email))
+            if (string.IsNullOrEmpty(accountDetails.email) && string.IsNullOrWhiteSpace(accountDetails.email))
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
         private bool CreateNewAccount(AccountDetails account)
